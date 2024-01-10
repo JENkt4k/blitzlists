@@ -17,11 +17,16 @@
           <div id="loading-indicator" style="display: none;">Loading tasks...</div>
           <!-- Tasks will be dynamically added here -->
         </div>
-        <div id="timer">
+        <!-- <div id="timer">
             <span id="time">00:00</span>
             <button onclick="startTimer()">Start Timer</button>
             <button onclick="stopTimer()">Stop Timer</button>
-        </div>
+        </div> -->
+        <section id="timer">
+          <div id="timer-display">00:00</div>
+          <button id="start-timer">Start Timer</button>
+          <button id="stop-timer" disabled>Stop Timer</button>
+        </section>
     </div>
     <script type="module" src="scripts/db.js"></script>
     <script type="module" src="scripts/app.js"></script>
