@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blitz List with Timer</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Blitz List</h1>
+        <div id="task-form">
+            <input type="text" id="new-task" placeholder="Add a new task...">
+            <button  id="add-task-button">Add Task</button><!-- onclick="addTask()">Add Task</button> -->
+        </div>
+        <div id="tasks-list">
+          <div id="loading-indicator" style="display: none;">Loading tasks...</div>
+          <!-- Tasks will be dynamically added here -->
+        </div>
+        <div id="timer">
+            <span id="time">00:00</span>
+            <button onclick="startTimer()">Start Timer</button>
+            <button onclick="stopTimer()">Stop Timer</button>
+        </div>
+    </div>
+    <script type="module" src="scripts/db.js"></script>
+    <script type="module" src="scripts/app.js"></script>
+</body>
+</html>
