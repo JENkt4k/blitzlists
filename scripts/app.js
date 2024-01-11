@@ -1,28 +1,21 @@
 let selected = null;
 
 import { db, addTaskToDB, fetchTasksFromDB } from './db.js';
+import { loadTimerControl } from './timerControl.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize the app
   initApp();
+  loadTimerControl();
 });
 
 function initApp() {
   // Set up event listeners for UI elements
   const addButton = document.getElementById('add-task-button');
-  const startButton = document.getElementById('start-timer');
-  const stopButton = document.getElementById('stop-timer');
+  
   if(addButton) {
     addButton.addEventListener('click', addTask);
   } 
-  if(startButton) {
-    startButton.addEventListener('click', startTimer);
-  }
-  if(stopButton) {
-    stopButton.addEventListener('click', stopTimer);
-  } else {
-    console.log("error");
-  }
   // Add other event listeners as needed
 
   // Load tasks from IndexedDB and display them
@@ -84,39 +77,4 @@ async function fetchFromDatabase() {
   return []; // Placeholder return
 }
 
-// Additional functions for other app features like editing, deleting tasks, etc.
-let timerInterval = null;
-let totalSeconds = 0;
-
-function startTimer() {
-    // Disable the start button and enable the stop button
-    document.getElementById('start-timer').disabled = true;
-    document.getElementById('stop-timer').disabled = false;
-
-    // Reset the timer
-    totalSeconds = 0;
-
-    // Update the timer every second
-    timerInterval = setInterval(updateTimer, 1000);
-}
-
-function stopTimer() {
-    clearInterval(timerInterval); // Stop the interval
-    document.getElementById('start-timer').disabled = false;
-    document.getElementById('stop-timer').disabled = true;
-}
-
-function updateTimer() {
-    totalSeconds++;
-    const minutes = Math.floor(totalSeconds / 60);
-    const seconds = totalSeconds % 60;
-
-    // Update the timer display
-    document.getElementById('timer-display').textContent = 
-        `${pad(minutes)}:${pad(seconds)}`;
-}
-
-function pad(val) {
-    return val > 9 ? val : "0" + val;
-}
 
