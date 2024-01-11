@@ -8,8 +8,6 @@ function loadTimerControl() {
 }
 
 function initializeTimerControl() {
-  // document.getElementById('start-timer').addEventListener('click', startTimer);
-  // document.getElementById('stop-timer').addEventListener('click', stopTimer);
   const startButton = document.getElementById('start-timer');
   const stopButton = document.getElementById('stop-timer');
   if(startButton) {

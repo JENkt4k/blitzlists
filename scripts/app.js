@@ -2,6 +2,7 @@ let selected = null;
 
 import { db, addTaskToDB, fetchTasksFromDB } from './db.js';
 import { loadTimerControl } from './timerControl.js';
+import { loadListControl } from './taskList.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize the app
@@ -17,9 +18,7 @@ function initApp() {
     addButton.addEventListener('click', addTask);
   } 
   // Add other event listeners as needed
-
-  // Load tasks from IndexedDB and display them
-  loadTasks();
+  loadListControl();
 }
 
 function addTask() {
@@ -35,46 +34,6 @@ function addTask() {
       }).catch(error => console.error(error));
   }
 }
-
-function loadTasks() {
-  const loadingIndicator = document.getElementById('loading-indicator');
-  if(loadingIndicator){
-    loadingIndicator.style.display = 'block'; // Show loading indicator
-  }
-  if (!db) {
-      console.log("Database is not initialized yet. Retrying...");
-      setTimeout(loadTasks, 1000); // Retry after 1 second
-      return;
-  }
-  // Fetch tasks from IndexedDB
-  fetchTasksFromDB().then(tasks => {
-      // Display the tasks on the page
-      displayTasks(tasks);
-  }).catch(error => console.error(error));
-}
-
-
-function displayTasks(tasks) {
-  const tasksListElement = document.getElementById('tasks-list');
-  tasksListElement.innerHTML = ''; // Clear existing tasks
-
-  tasks.forEach(task => {
-      // Create and append task elements to the list
-      const taskElement = document.createElement('div');
-      taskElement.textContent = task.name; // Assuming tasks have a 'name' property
-      tasksListElement.appendChild(taskElement);
-  });
-}
-
-// Add IndexedDB interaction functions: addToDatabase and fetchFromDatabase
-
-async function addToDatabase(taskName) {
-  // Logic to add a task to IndexedDB
-}
-
-async function fetchFromDatabase() {
-  // Logic to fetch tasks from IndexedDB
-  return []; // Placeholder return
-}
+// }
 
 

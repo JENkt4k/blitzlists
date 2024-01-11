@@ -13,24 +13,18 @@
             <input type="text" id="new-task" placeholder="Add a new task...">
             <button  id="add-task-button">Add Task</button><!-- onclick="addTask()">Add Task</button> -->
         </div>
-        <div id="tasks-list">
+        <div id="task-list-control-container">
           <div id="loading-indicator" style="display: none;">Loading tasks...</div>
           <!-- Tasks will be dynamically added here -->
         </div>
-        <!-- <div id="timer">
-            <span id="time">00:00</span>
-            <button onclick="startTimer()">Start Timer</button>
-            <button onclick="stopTimer()">Stop Timer</button>
-        </div> -->
-        <!-- <section id="timer">
-          <div id="timer-display">00:00</div>
-          <button id="start-timer">Start Timer</button>
-          <button id="stop-timer" disabled>Stop Timer</button>
-        </section> -->
+
         <div id="timer-control-container"></div>
+
     </div>
+    
     <script type="module" src="scripts/db.js"></script>
     <script type="module" src="scripts/timerControl.js"></script>
+    <script type="module" src="scripts/taskList.js"></script>
     <script type="module" src="scripts/app.js"></script>
 </body>
 </html>
