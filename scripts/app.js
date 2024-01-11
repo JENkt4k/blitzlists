@@ -1,3 +1,5 @@
+let selected = null;
+
 import { db, addTaskToDB, fetchTasksFromDB } from './db.js';
 
 document.addEventListener('DOMContentLoaded', () => {
