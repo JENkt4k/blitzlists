@@ -64,4 +64,4 @@ function displayTasks(tasks) {
   });
 }
 
-export { loadListControl };
+export { loadListControl, loadTasks };
