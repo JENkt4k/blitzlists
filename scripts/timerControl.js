@@ -1,6 +1,4 @@
 function createTimerControl(task) {
-  console.log('createTimerControl called for task:', task);
-  console.log('createTimerControl called for task mod:', task);
   // Return a new Promise
   return new Promise((resolve, reject) => {
       fetch('/taskList/timerControl.html')
@@ -11,7 +9,6 @@ function createTimerControl(task) {
               const timer = div.firstChild;
 
               // Initialize and set up the timer control
-              //initializeTaskDefaults(task);
               initializeTimerControl(timer, task); // Pass the timer element and task to the initializer
 
               // Resolve the promise with the timer element
@@ -37,40 +34,7 @@ function initializeTaskDefaults(task) {
   // Add other default values as needed
 }
 
-
-// function initializeTimerControl(timer, task) {
-//   const startButton = timer.getElementById('start-timer');
-//   const stopButton = timer.getElementById('stop-timer');
-//   if(startButton) {
-//     startButton.addEventListener('click', startTimer);
-//   }
-//   if(stopButton) {
-//     stopButton.addEventListener('click', stopTimer);
-//   } else {
-//     console.log("error");
-//   }
-//   updateTimerDisplay(timer, task.totalSeconds)
-//   // Additional initialization code...
-// }
-
-// Additional functions for other app features like editing, deleting tasks, etc.
-// let timerInterval = null;
-// let totalSeconds = 0;
-
-// function updateTimer() {
-//     totalSeconds++;
-//     const minutes = Math.floor(totalSeconds / 60);
-//     const seconds = totalSeconds % 60;
-
-//     // Update the timer display
-//     document.getElementById('timer-display').textContent = 
-//         `${pad(minutes)}:${pad(seconds)}`;
-// }
-
 function updateTimerDisplay(timerElement, totalSeconds) {
-  console.log(totalSeconds);
-  console.log(typeof totalSeconds);
-  const secs = totalSeconds;
   const minutes = Math.floor(totalSeconds / 60);
   const seconds = totalSeconds % 60;
   timerElement.querySelector('.timer-display').textContent = 
@@ -84,7 +48,6 @@ function initializeTimerControl(timer, task) {
     return;
   }
 
-  console.log(timer);
   const startButton = timer.querySelector('.start-timer');
   const stopButton = timer.querySelector('.stop-timer');
 
@@ -94,13 +57,6 @@ function initializeTimerControl(timer, task) {
   } else {
       console.log("Error: Buttons not found");
   }
-  // if (task && task.totalSeconds !== undefined) {
-  //   console.log(task);
-  //   updateTimerDisplay(timer. task.totalSeconds)
-  // } else {
-  //     console.error("Task object is undefined or missing totalSeconds property");
-  // }
-
 }
 
 function startTimer(task, timer) {
@@ -121,25 +77,6 @@ function stopTimer(task, timer) {
 
   // ... rest of your stop logic ...
 }
-
-
-// function startTimer() {
-//   // Disable the start button and enable the stop button
-//   document.getElementById('start-timer').disabled = true;
-//   document.getElementById('stop-timer').disabled = false;
-
-//   // Reset the timer
-//   totalSeconds = 0;
-
-//   // Update the timer every second
-//   timerInterval = setInterval(updateTimer, 1000);
-// }
-
-// function stopTimer() {
-//   clearInterval(timerInterval); // Stop the interval
-//   document.getElementById('start-timer').disabled = false;
-//   document.getElementById('stop-timer').disabled = true;
-// }
 
 function updateTimer(task, timerElement) {
   if (task.totalSeconds > 0) {
