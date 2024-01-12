@@ -1,0 +1,22 @@
+{
+    "name": "Blitz",
+    "short_name": "Snake",
+    "description": "A simple snake game",
+    "start_url": ".",
+    "theme_color": "#000",
+    "background_color": "#fff",
+    "display": "standalone",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "images/icon48.png",
+            "sizes": "48x48",
+            "type": "image/png"
+        },
+        {
+            "src": "images/icon512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
