@@ -1,6 +1,7 @@
 let taskListRoot = null;
 // Function to load the list control
 import { db, addTaskToDB, fetchTasksFromDB } from './db.js';
+import { displayTasks } from './taskItem.js';
 function loadListControl() {
   fetch('/taskList/taskList.html')
       .then(response => response.text())
@@ -31,37 +32,6 @@ function loadTasks() {
       // Display the tasks on the page
       displayTasks(tasks);
   }).catch(error => console.error(error));
-}
-
-// Function to create a list item control
-function createListItemControl(task) {
-  // Fetch and return a list item control element
-  return fetch('/taskList/taskItem.html')
-      .then(response => response.text())
-      .then(html => {
-          const div = document.createElement('div');
-          div.innerHTML = html;
-          const taskItem = div.firstChild;
-          const taskNameQry = taskItem.querySelector('.task-name');
-          if(taskNameQry){
-            taskNameQry.textContent = task.name;
-          }
-          else {
-            console.log(response);
-          }
-          // Add event listeners and other logic to the task item
-          return taskItem;
-      });
-}
-
-function displayTasks(tasks) {
-  const tasksListElement = document.getElementById('task-list-control-container');
-  tasks.forEach(task => {      
-      createListItemControl(task).then(taskItem => {
-        tasksListElement.appendChild(taskItem);
-      });
-      
-  });
 }
 
 export { loadListControl, loadTasks };

@@ -1,13 +1,12 @@
 let selected = null;
 
 import { db, addTaskToDB, fetchTasksFromDB } from './db.js';
-import { loadTimerControl } from './timerControl.js';
+
 import { loadListControl, loadTasks } from './taskList.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize the app
   initApp();
-  loadTimerControl();
 });
 
 function initApp() {
