@@ -107,6 +107,25 @@ header a:hover {
 }
 
 /* Timer Styles */
+.timer-control {
+  text-align: center;
+  #timer {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  #timer-display {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  
+  #timer button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 1em;
+  }
+}
+
 #timer {
   text-align: center;
   margin: 20px 0;
