@@ -23,13 +23,9 @@ function createTimerControl(task) {
 }
 
 function initializeTaskDefaults(task) {
-  if (task.timerInterval === undefined) {
-    task.timerInterval = "00:00";
-  }
   if (task.totalSeconds === undefined) {
       task.totalSeconds = 0;
   }
-  task.timerInterval = task.timerInterval || "00:00";
   task.totalSeconds = task.totalSeconds || 0;
   // Add other default values as needed
 }
