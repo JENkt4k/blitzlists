@@ -26,6 +26,7 @@ function createListItemControl(task) {
 
 function displayTasks(tasks) {
   const tasksListElement = document.getElementById('task-list-control-container');
+  tasksListElement.innerHTML = '';
   tasks.forEach(task => {      
         initializeTaskDefaults(task);
         createListItemControl(task).then(taskItem => {
