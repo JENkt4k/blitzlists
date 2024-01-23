@@ -14,6 +14,15 @@ function initializePeer(){
 
     // Listen for incoming connections
     peer.on('connection', (conn) => {
+
+        document.getElementById('send-msg-btn').addEventListener('click', () => {
+            if (conn && conn.open) {
+                conn.send('Your message here');
+            } else {
+                console.log('Connection not established or not open.');
+            }
+        });
+
         conn.on('data', (data) => {
             // Handle received data
             console.log('Received:', data);

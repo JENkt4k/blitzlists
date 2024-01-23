@@ -23,9 +23,31 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.log(`QR Code detected: ${qrCodeMessage}`);
                 const conn = peer.connect(qrCodeMessage);
 
+
                 conn.on('open', () => {
                     console.log('Connection to peer opened');
                     conn.send('Hello from the other peer!'); // Sending a message to the connected peer
+                });
+
+                // Listen for incoming connections
+                peer.on('connection', (conn) => {
+
+                    document.getElementById('send-msg-btn').addEventListener('click', () => {
+                        if (conn && conn.open) {
+                            conn.send('Your message here');
+                        } else {
+                            console.log('Connection not established or not open.');
+                        }
+                    });
+
+                    conn.on('data', (data) => {
+                        // Handle received data
+                        console.log('Received:', data);
+                    });
+
+                    conn.on('open', () => {
+                        conn.send('Hello from the other peer!');
+                    });
                 });
 
                 conn.on('data', (data) => {
