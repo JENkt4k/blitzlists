@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="https://unpkg.com/html5-qrcode/html5-qrcode.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+  <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
     <meta charset="UTF-8">
     <title>Blitz List with Timer</title>
     <link rel="stylesheet" href="styles/style.css">
@@ -19,11 +22,29 @@
         </div>        
 
     </div>
+    <div id="qr-reader" style="width:500px"></div>
+    <div id="qr-reader-results"></div>
+    <button id="initiate-p2p">Initiate P2P Connection</button>
+    <canvas id="qr-code-canvas"></canvas>
+    <div id="qrcode"></div>
+
+
+    <!-- Button to trigger QR scanner -->
+    <button id="btn-scan-qr">Scan QR Code</button>
+
+    <!-- Container for QR scanner (initially hidden) -->
+    <div id="qr-scanner-popup" style="display: none;">
+        <div id="qr-reader" style="width: 500px;"></div>
+        <button id="btn-close-scanner">Close Scanner</button>
+    </div> 
     
+    <script type="module" src="scripts/qrcodegen.js"></script>
     <script type="module" src="scripts/db.js"></script>
     <script type="module" src="scripts/timerControl.js"></script>
     <script type="module" src="scripts/taskList.js"></script>
     <script type="module" src="scripts/taskItem.js"></script>
     <script type="module" src="scripts/app.js"></script>
+    <!-- QR scanner script -->
+    <script type="module" src="scripts/qr-scanner-script.js"></script>
 </body>
 </html>
