@@ -12,10 +12,15 @@
 
     <div class="container">
         <h1>Blitz List</h1>
+        <input type="text" id="peer-id-input" placeholder="Enter Peer ID">
+        <button id="connect-btn">Connect</button>
+
+        <input type="text" id="message-input" placeholder="Enter Message">
+        <button id="send-msg-btn">Send Message</button>
         <div id="task-form">
             <input type="text" id="new-task" placeholder="Add a new task...">
             <button  id="add-task-button">Add Task</button><!-- onclick="addTask()">Add Task</button> -->
-            <button id="send-msg-btn">Send Message</button>
+            <!-- <button id="send-msg-btn">Send Message</button> -->
         </div>
         <div id="task-list-control-container">
           <div id="loading-indicator" style="display: none;">Loading tasks...</div>
@@ -39,13 +44,11 @@
         <button id="btn-close-scanner">Close Scanner</button>
     </div> 
     
-    <script type="module" src="scripts/qrcodegen.js"></script>
+    <script type="module" src="scripts/peerConnectionManager.js"></script>
     <script type="module" src="scripts/db.js"></script>
     <script type="module" src="scripts/timerControl.js"></script>
     <script type="module" src="scripts/taskList.js"></script>
     <script type="module" src="scripts/taskItem.js"></script>
     <script type="module" src="scripts/app.js"></script>
-    <!-- QR scanner script -->
-    <script type="module" src="scripts/qr-scanner-script.js"></script>
 </body>
 </html>
