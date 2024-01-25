@@ -16,7 +16,6 @@ export class PeerConnectionManager {
       });
       // Assuming Html5QrcodeScanner is available globally
       this.qrScanner = new Html5QrcodeScanner("qr-reader", { fps: 10, qrbox: 250 });
-      //Html5Qrcode("qr-reader");
   }
 
   setupConnectionEventHandlers(conn) {
@@ -53,7 +52,7 @@ export class PeerConnectionManager {
 
   generateQRCode(text) {
     // Empty the container
-    const qrContainer = document.getElementById('qr-reader');
+    const qrContainer = document.getElementById('qrcode');
     qrContainer.innerHTML = '';
   
     // Generate QR code
@@ -66,11 +65,6 @@ export class PeerConnectionManager {
         correctLevel : QRCode.CorrectLevel.H
     });
   }
-
-// generateQRCode() {
-//     // Assuming you have a method to generate a QR code from the peer ID
-//     generateQRCode(this.peer.id); // Replace with your actual QR code generation logic
-// }
 
 startQRScanner() {
     this.qrScanner.render((decodedText, decodedResult) => {

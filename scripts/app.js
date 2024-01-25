@@ -3,10 +3,8 @@ import { PeerConnectionManager } from './peerConnectionManager.js';
 import { db, addTaskToDB, fetchTasksFromDB } from './db.js';
 
 import { loadListControl, loadTasks } from './taskList.js';
-//import { initializePeer } from "./qrcodegen.js"
 
-let selected = null;
-
+//initializing peer connection manager
 const peerManager = new PeerConnectionManager();
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -21,8 +19,6 @@ function initApp() {
   if (addButton) {
     addButton.addEventListener('click', addTask);
   }
-
-  //initializePeer();
 
   // Add other event listeners as needed
   loadListControl();
@@ -55,11 +51,13 @@ function initApp() {
 
   });
 
+  document.getElementById('btn-scan-qr').addEventListener('click', () => {
+    peerManager.startQRScanner();
+  });
+
 }
 
-document.getElementById('btn-scan-qr').addEventListener('click', () => {
-  peerManager.startQRScanner();
-});
+
 
 function addTask() {
   const newTaskInput = document.getElementById('new-task');
