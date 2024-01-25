@@ -20,6 +20,8 @@ export class PeerConnectionManager {
 
     setupConnectionEventHandlers(conn) {
         conn.on('data', (data) => {
+            let messageOut = document.getElementById('message-output');
+            messageOut.value += data; 
             console.log('Received data:', data);
             // You can emit custom events or call other methods here
         });
