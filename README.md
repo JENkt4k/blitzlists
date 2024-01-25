@@ -12,3 +12,5 @@ Blitz Lists is an innovative to-do list application designed to help users overc
 
 Whether it's for personal use, managing daily work tasks, or simply getting through a busy schedule, Blitz Lists is an ideal tool for anyone looking to enhance their productivity and decision-making skills.
 
+note: console to delete db indexedDB.deleteDatabase('blitzListsDB');
+

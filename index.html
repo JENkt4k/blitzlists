@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="https://unpkg.com/html5-qrcode/html5-qrcode.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+  <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
     <meta charset="UTF-8">
     <title>Blitz List with Timer</title>
     <link rel="stylesheet" href="styles/style.css">
@@ -9,9 +12,15 @@
 
     <div class="container">
         <h1>Blitz List</h1>
+        <input type="text" id="peer-id-input" placeholder="Enter Peer ID">
+        <button id="connect-btn">Connect</button>
+
+        <input type="text" id="message-input" placeholder="Enter Message">
+        <button id="send-msg-btn">Send Message</button>
         <div id="task-form">
             <input type="text" id="new-task" placeholder="Add a new task...">
             <button  id="add-task-button">Add Task</button><!-- onclick="addTask()">Add Task</button> -->
+            <!-- <button id="send-msg-btn">Send Message</button> -->
         </div>
         <div id="task-list-control-container">
           <div id="loading-indicator" style="display: none;">Loading tasks...</div>
@@ -19,7 +28,23 @@
         </div>        
 
     </div>
+    <div id="qr-reader" style="width:500px"></div>
+    <div id="qr-reader-results"></div>
+    <button id="initiate-p2p">Initiate P2P Connection</button>
+    <canvas id="qr-code-canvas"></canvas>
+    <div id="qrcode"></div>
+
+
+    <!-- Button to trigger QR scanner -->
+    <button id="btn-scan-qr">Scan QR Code</button>
+
+    <!-- Container for QR scanner (initially hidden) -->
+    <div id="qr-scanner-popup" style="display: none;">
+        <div id="qr-reader" style="width: 500px;"></div>
+        <button id="btn-close-scanner">Close Scanner</button>
+    </div> 
     
+    <script type="module" src="scripts/peerConnectionManager.js"></script>
     <script type="module" src="scripts/db.js"></script>
     <script type="module" src="scripts/timerControl.js"></script>
     <script type="module" src="scripts/taskList.js"></script>

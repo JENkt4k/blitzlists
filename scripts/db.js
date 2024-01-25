@@ -14,15 +14,13 @@ request.onupgradeneeded = function (event) {
     let db = event.target.result;
     let objectStore = db.createObjectStore('tasks', { keyPath: 'id', autoIncrement: true });
     objectStore.createIndex('name', 'name', { unique: false });
-    objectStore.createIndex("totalSeconds", "totalSeconds", { unique: false });
-    objectStore.createIndex("timerInterval", "timerInterval", { unique: false });
 };
 
 function addTaskToDB(taskName) {
     return new Promise((resolve, reject) => {
         let transaction = db.transaction(['tasks'], 'readwrite');
         let store = transaction.objectStore('tasks');
-        let request = store.add({ name: taskName, totalSeconds: 300, timerInterval: "00:00"});
+        let request = store.add({ name: taskName, totalSeconds: 300 });
 
         request.onsuccess = function () {
             resolve(request.result);
