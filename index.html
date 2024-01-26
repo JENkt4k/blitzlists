@@ -17,6 +17,11 @@
 
         <input type="text" id="message-input" placeholder="Enter Message">
         <button id="send-msg-btn">Send Message</button>
+
+        <br>
+
+        <input type="text" id="message-output" placeholder="Messages ...">
+
         <div id="task-form">
             <input type="text" id="new-task" placeholder="Add a new task...">
             <button  id="add-task-button">Add Task</button><!-- onclick="addTask()">Add Task</button> -->
@@ -30,10 +35,14 @@
     </div>
     <div id="qr-reader" style="width:500px"></div>
     <div id="qr-reader-results"></div>
-    <button id="initiate-p2p">Initiate P2P Connection</button>
+    <button id="copy-p2p-id">Copy ID & Connect</button>
     <canvas id="qr-code-canvas"></canvas>
+    
+    <div id="toast" class="toast">Text copied!</div>
     <div id="qrcode"></div>
+    <br>
 
+    <input type="text" id="my-peer-id" placeholder="My Peer ID">
 
     <!-- Button to trigger QR scanner -->
     <button id="btn-scan-qr">Scan QR Code</button>

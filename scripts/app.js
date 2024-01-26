@@ -29,6 +29,16 @@ function initApp() {
     peerManager.connectToPeer(peerId);
   });
 
+  document.getElementById('copy-p2p-id').addEventListener('click', () => {
+    const myPeerId = document.getElementById('my-peer-id').value;
+    navigator.clipboard.writeText(myPeerId).then(() => {
+        console.log('Text copied to clipboard');
+        showToast();
+    }).catch(err => {
+        console.error('Failed to copy text: ', err);
+    });
+  });
+
   // Example: Send a message to a specific peer
   document.getElementById('send-msg-btn').addEventListener('click', () => {
     //you can't send without active connection, lets get it and compare it to the connections
@@ -57,6 +67,11 @@ function initApp() {
 
 }
 
+function showToast() {
+  const toast = document.getElementById("toast");
+  toast.className = "show";
+  setTimeout(() => { toast.className = toast.className.replace("show", "toast"); }, 3000);
+}
 
 
 function addTask() {
