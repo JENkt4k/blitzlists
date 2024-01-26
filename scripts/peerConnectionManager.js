@@ -8,6 +8,7 @@ export class PeerConnectionManager {
         this.peer.on('open', (id) => {
             console.log('My peer ID is: ' + id);
             this.generateQRCode(id);
+            document.getElementById('my-peer-id').value = id;
             console.log('generateQRCode called with ID: ' + id);
         });
 
