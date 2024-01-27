@@ -5,14 +5,17 @@ function loadHeaderControl() {
       .then(html => {
         headerRoot = document.getElementById('header-container').innerHTML = html;
         console.log(html);
-          //initializeHeaderControl(); // Initialize the header control
-        const userName = "John Doe";
-        const userStatus = "Online";
+        const userName = localStorage.getItem('userName');
+        const userStatus = localStorage.getItem('userStatus');
 
-        document.getElementById('user-name').textContent = `Welcome, ${userName}`;
-        document.getElementById('user-status').textContent = `Status: ${userStatus}`;
+        setHeaderData(userName, userStatus);
+        
       });
 }
 
+function setHeaderData( userName = "Unknown", userStatus = "No Peers" ) {
+  document.getElementById('user-name').textContent = `Welcome, ${userName}`;
+  document.getElementById('user-status').textContent = `Status: ${userStatus}`;
+}
 
 export { loadHeaderControl }

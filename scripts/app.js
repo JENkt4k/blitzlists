@@ -5,6 +5,7 @@ import { db, addTaskToDB, fetchTasksFromDB } from './db.js';
 import { loadListControl, loadTasks } from './taskList.js';
 
 import { loadHeaderControl } from './header.js';
+import { loadMenuControl } from './menu.js';
 
 //initializing peer connection manager
 const peerManager = new PeerConnectionManager();
@@ -21,6 +22,9 @@ function initApp() {
   if (addButton) {
     addButton.addEventListener('click', addTask);
   }
+
+  loadMenuControl();
+
   loadHeaderControl();
 
   // Add other event listeners as needed
@@ -68,7 +72,59 @@ function initApp() {
     peerManager.startQRScanner();
   });
 
+//   document.getElementById('hamburger-menu-button').addEventListener('click', function() {
+//     const drawer = document.getElementById('drawer-container');
+//     if (drawer.classList.contains('drawer-open')) {
+//         drawer.classList.remove('drawer-open');
+//         drawer.classList.add('drawer-closed');
+//     } else {
+//         drawer.classList.remove('drawer-closed');
+//         drawer.classList.add('drawer-open');
+//     }
+// });
+
+
 }
+
+/**
+ * Saving State to localStorage
+Whenever the state changes (e.g., a user selects a different task list), save the new state to localStorage. Since localStorage can only store strings, you may need to serialize your state object into a JSON string.
+ */
+// function saveStateToLocalStorage(state) {
+//   const serializedState = JSON.stringify(state);
+//   localStorage.setItem('appState', serializedState);
+// }
+
+// // Example usage: Save current view
+// saveStateToLocalStorage({ currentView: 'taskList', selectedListId: 'list123' });
+
+/**
+ * When the application loads, check localStorage for the saved state and restore it.
+
+Example:
+ * 
+ */
+/*function restoreStateFromLocalStorage() {
+  const serializedState = localStorage.getItem('appState');
+  if (serializedState) {
+      return JSON.parse(serializedState);
+  }
+  return null; // or a default state object
+}
+
+const savedState = restoreStateFromLocalStorage();
+if (savedState) {
+  // Restore the UI based on the saved state
+  switchToView(savedState.currentView, savedState.selectedListId);
+}
+*/
+
+
+/**
+ * 
+ * @param {*} message 
+ * @param {*} duration 
+ */
 
 function showToast(message = "Text copied!", duration = 3000) {
   const toast = document.getElementById('toast');
