@@ -4,6 +4,8 @@ import { db, addTaskToDB, fetchTasksFromDB } from './db.js';
 
 import { loadListControl, loadTasks } from './taskList.js';
 
+import { loadHeaderControl } from './header.js';
+
 //initializing peer connection manager
 const peerManager = new PeerConnectionManager();
 
@@ -19,6 +21,7 @@ function initApp() {
   if (addButton) {
     addButton.addEventListener('click', addTask);
   }
+  loadHeaderControl();
 
   // Add other event listeners as needed
   loadListControl();
