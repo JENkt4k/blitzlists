@@ -67,16 +67,20 @@ function initApp() {
 
 }
 
-function showToast() {
-  const toast = document.getElementById("toast");
-  toast.className = "show";
-  setTimeout(() => { toast.className = toast.className.replace("show", "toast"); }, 3000);
+function showToast(message = "Text copied!", duration = 3000) {
+  const toast = document.getElementById('toast');
+  toast.textContent = message;
+  toast.classList.add('show'); // Add 'show' class, keep 'toast' class
+
+  setTimeout(() => {
+      toast.classList.remove('show'); // Remove 'show' class, keep 'toast' class
+  }, duration);
 }
 
 
 function addTask() {
   const newTaskInput = document.getElementById('new-task');
-  const task = newTaskInput.value;
+  const { value: task } = newTaskInput;
   newTaskInput.value = ''; // Clear the input field
 
   if (task) {
