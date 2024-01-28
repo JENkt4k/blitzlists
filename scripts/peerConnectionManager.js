@@ -21,8 +21,17 @@ export class PeerConnectionManager {
 
     setupConnectionEventHandlers(conn) {
         conn.on('data', (data) => {
-            let messageOut = document.getElementById('message-output');
-            messageOut.value += data; 
+            const message = data.trim();
+
+            if (message) {
+                const messageList = document.getElementById('message-list');
+                const newMessage = document.createElement('li');
+                newMessage.textContent = message;
+                messageList.appendChild(newMessage);
+
+                input.value = ''; // Clear the input field
+                messageList.scrollTop = messageList.scrollHeight; // Scroll to the bottom
+            }
             console.log('Received data:', data);
             // You can emit custom events or call other methods here
         });

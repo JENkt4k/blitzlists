@@ -241,3 +241,9 @@ header a:hover {
 .drawer-closed {
   left: -100%; /* Hide off-screen */
 }
+
+#message-container {
+  height: 200px; /* Adjust height as needed */
+  overflow-y: auto; /* Enables vertical scrolling */
+  border: 1px solid #ccc;
+}
