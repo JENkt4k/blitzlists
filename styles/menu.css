@@ -1,0 +1,43 @@
+#hamburger-menu-button {
+  /* Styling for the button */
+  /* float: left;
+  /* z-index: 1;
+  position: fixed;
+  top: 10; */
+  color:#bbb;
+  background-color: #333; 
+  /* top: 0; */
+}
+
+#menu-decorator {
+  color:#333;
+  background-color: #333; 
+  width: 100%;
+}
+
+#drawer-container {
+  display: flex;
+  flex-direction: column; /* Align children vertically */
+  align-items: start; /* Align children to the start of the container */
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 250px; /* Adjust as needed */
+  max-width: 250px;
+  height: 100%;
+  background-color: white;
+  transition: left 0.3s;
+  z-index: 1000;
+}
+
+#drawer-container.drawer-open {
+  left: 0; 
+}
+
+#drawer-container button {
+  width: 100%;
+}
+
+.drawer-closed {
+  left: -100%; /* Hide off-screen */
+}

@@ -1,0 +1,83 @@
+/* Task List Styles */
+#tasks-list {
+  margin-top: 30px;
+  border: 1px solid #ddd;
+  background: #fff;
+  padding: 20px;
+}
+
+.task-item {
+  border-bottom: 1px dotted #ccc;
+  padding: 10px;
+}
+
+/* Loading Indicator Styles */
+#loading-indicator {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Form Styles */
+#task-form {
+  margin-top: 30px;
+}
+
+#task-form input[type="text"] {
+  width: 70%;
+  padding: 10px;
+}
+
+#task-form button {
+  width: 15%;
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#task-form button:hover {
+  background: #e8491d;
+}
+
+/* Timer Styles */
+.timer-control {
+  text-align: center;
+  #timer {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  #timer-display {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  
+  #timer button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 1em;
+  }
+}
+
+#timer {
+  text-align: center;
+  margin: 20px 0;
+}
+
+#timer-display {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+#timer button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  font-size: 1em;
+}
+
+@media (max-width: 768px) {
+  #task-form input[type="text"], #task-form button {
+      width: 40%;
+  }
+}

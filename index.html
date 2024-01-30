@@ -7,26 +7,24 @@
     <meta charset="UTF-8">
     <title>Blitz List with Timer</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/task.css">
+    <link rel="stylesheet" href="styles/menu.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
 
+    <!-- Hamburger Menu Button -->
+    <div id="menu-decorator">
+        <button id="hamburger-menu-button">☰</button>
+    </div> 
+    
     <div id="hamburger-menu-container"></div>
     <div id="header-container"></div>
 
     <div id="toast" class="toast">Text copied!</div>
     <div class="container">
         <h1>Blitz List</h1>
-        <input type="text" id="peer-id-input" placeholder="Enter Peer ID">
-        <button id="connect-btn">Connect</button>
-
-        <input type="text" id="message-input" placeholder="Enter Message">
-        <button id="send-msg-btn">Send Message</button>
-
-        <br>
-
-        <div id="message-container">
-            <ul id="message-list"></ul>
-        </div>
 
         <div id="task-form">
             <input type="text" id="new-task" placeholder="Add a new task...">
@@ -59,11 +57,15 @@
         <button id="btn-close-scanner">Close Scanner</button>
     </div> 
     
+
+    <div id="footer-container"></div>
+
     <script type="module" src="scripts/peerConnectionManager.js"></script>
     <script type="module" src="scripts/db.js"></script>
     <script type="module" src="scripts/timerControl.js"></script>
-    <script type="module" src="scripts/menu.js"></script>
     <script type="module" src="scripts/header.js"></script>
+    <script type="module" src="scripts/footer.js"></script>
+    <script type="module" src="scripts/menu.js"></script>    
     <script type="module" src="scripts/taskList.js"></script>
     <script type="module" src="scripts/taskItem.js"></script>
     <script type="module" src="scripts/app.js"></script>
