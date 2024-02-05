@@ -49,45 +49,6 @@ function initApp() {
         console.error('Failed to copy text: ', err);
     });
   });
-
-  // // Example: Send a message to a specific peer
-  // document.getElementById('send-msg-btn').addEventListener('click', () => {
-  //   //you can't send without active connection, lets get it and compare it to the connections
-  //   let peerId = document.getElementById('peer-id-input').value;
-  //   const connectionMap = peerManager.connections;
-  //   if (connectionMap.size > 0) {
-  //     const firstConnectionId = connectionMap.keys[0];
-  //     const hasConnection = peerId != "" && connectionMap.has(peerId);
-
-  //     peerId = hasConnection  ? peerId : firstConnectionId;
-  //   }
-
-  //   if (peerId == "") {
-  //     console.log('Connection not established or not open. peerId:', peerId);
-  //   } else {
-  //     const message = document.getElementById('message-input').value;
-  //     peerManager.sendMessageToPeer(peerId, message);      
-  //   }
-
-
-  // });
-
-  // document.getElementById('btn-scan-qr').addEventListener('click', () => {
-  //   peerManager.startQRScanner();
-  // });
-
-//   document.getElementById('hamburger-menu-button').addEventListener('click', function() {
-//     const drawer = document.getElementById('drawer-container');
-//     if (drawer.classList.contains('drawer-open')) {
-//         drawer.classList.remove('drawer-open');
-//         drawer.classList.add('drawer-closed');
-//     } else {
-//         drawer.classList.remove('drawer-closed');
-//         drawer.classList.add('drawer-open');
-//     }
-// });
-
-
 }
 
 /**

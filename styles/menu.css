@@ -15,7 +15,7 @@
   width: 100%;
 }
 
-#drawer-container {
+#hamburger-menu-container {
   display: flex;
   flex-direction: column; /* Align children vertically */
   align-items: start; /* Align children to the start of the container */
@@ -30,11 +30,11 @@
   z-index: 1000;
 }
 
-#drawer-container.drawer-open {
+#hamburger-menu-container.drawer-open {
   left: 0; 
 }
 
-#drawer-container button {
+#hamburger-menu-container button {
   width: 100%;
 }
 
