@@ -32,15 +32,6 @@ function initializeMenuControl(){
         loadContentFromElement(event.target);
     }
   });
-
-  //menu-item-connections replaced this
-  // document.getElementById('show-qr-tasks').addEventListener('click', function() {
-  //   renderQRTasksView();
-  // });
-
-  // document.getElementById('show-message-tasks').addEventListener('click', function() {
-  //   renderMessageTasksView();
-  // });
 }
 
 function loadContentFromElement(element) {
@@ -82,18 +73,6 @@ function connectDrawerHandler(){
       drawer.classList.add('drawer-open');
   }
   
-}
-
-//menu-item-connections replaced this with routing
-// function renderQRTasksView() {
-//   // Logic to render QR tasks view
-//   loadContent()
-//   console.log(`renderQRTasksView ${menuRoot}`);
-// }
-
-function renderMessageTasksView() {
-  // Logic to render message tasks view
-  console.log(`renderMessageTasksView ${menuRoot}`);
 }
 
 export { loadMenuControl }
